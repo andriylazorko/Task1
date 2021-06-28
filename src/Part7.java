@@ -2,10 +2,118 @@ public class Part7 {
     public static void main(String[] args) {
         System.out.print(columnSequenceNumber(args[0]));
 
+//        if (columnLetterNumber(columnSequenceNumber(args[0])) != null)
+//            System.out.print(columnLetterNumber(Integer.parseInt(args[0])));
+
+//        System.out.println(rightSideColumnDefining(args[0]));
+
     }
 
-    public static int columnSequenceNumber(String arg) {
-        char[] strToArray = arg.toCharArray(); // array String to array char
+    public static String rightSideColumnDefining(String arg) {
+        return columnLetterNumber(columnSequenceNumber(arg) + 1);
+    }
+
+    public static String columnLetterNumber(int number) {
+        int wholeNumb;
+        int redundat;
+        String letter = null;
+        String str = "";
+        while (number > 0) {
+            if (number == 26) {
+                letter = "Z";
+                number = 0;
+            } else {
+                wholeNumb = (int) number / 26;
+                redundat = number % 26;
+                switch (redundat) {
+                    case 1:
+                        letter = "A";
+                        break;
+                    case 2:
+                        letter = "B";
+                        break;
+                    case 3:
+                        letter = "C";
+                        break;
+                    case 4:
+                        letter = "D";
+                        break;
+                    case 5:
+                        letter = "E";
+                        break;
+                    case 6:
+                        letter = "F";
+                        break;
+                    case 7:
+                        letter = "G";
+                        break;
+                    case 8:
+                        letter = "H";
+                        break;
+                    case 9:
+                        letter = "I";
+                        break;
+                    case 10:
+                        letter = "J";
+                        break;
+                    case 11:
+                        letter = "K";
+                        break;
+                    case 12:
+                        letter = "L";
+                        break;
+                    case 13:
+                        letter = "M";
+                        break;
+                    case 14:
+                        letter = "N";
+                        break;
+                    case 15:
+                        letter = "O";
+                        break;
+                    case 16:
+                        letter = "P";
+                        break;
+                    case 17:
+                        letter = "Q";
+                        break;
+                    case 18:
+                        letter = "R";
+                        break;
+                    case 19:
+                        letter = "S";
+                        break;
+                    case 20:
+                        letter = "T";
+                        break;
+                    case 21:
+                        letter = "U";
+                        break;
+                    case 22:
+                        letter = "V";
+                        break;
+                    case 23:
+                        letter = "W";
+                        break;
+                    case 24:
+                        letter = "X";
+                        break;
+                    case 25:
+                        letter = "Y";
+                        break;
+
+                    default:
+                        break;
+                }
+                number = wholeNumb;
+            }
+            str = str + letter;
+        }
+        return new StringBuffer(str).reverse().toString();
+    }
+
+    public static int columnSequenceNumber(String number) {
+        char[] strToArray = number.toCharArray(); // array String to array char
         int numbOfColumn = 0;
         int numb;
         for (int i = strToArray.length - 1; i >= 0; i--) {
