@@ -27,7 +27,7 @@ public class Part7 {
         while (number > 0) {
             if (number % 26 == 0) {
                 letter = "Z";
-                number = (int) number / 26-1;
+                number = (int) (number / 26)-1;
             } else {
                 wholeNumb = (int) number / 26;
                 redundat = number % 26;

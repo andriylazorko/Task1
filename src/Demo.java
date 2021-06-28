@@ -7,7 +7,7 @@ public class Demo {
 //        Part4.main(new String[]{"99", "33"});
 //        Part5.main(new String[]{"1", "-2", "6.5", "3", "4", "w"});
 //        Part6.main(new String[]{"11"});
-        Part7.main(new String[]{"AAA"});
+        Part7.main(new String[]{"AZ"});
 
 
 //        Part7.columnSequenceNumber("ADREWS");
