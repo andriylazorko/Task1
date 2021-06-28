@@ -1,17 +1,18 @@
 public class Part7 {
     public static void main(String[] args) {
+        final String arrow = " ==> ";
+        String[] s = {"A", "B", "Z", "AA", "AZ", "BA", "ZZ", "AAA"};
+        for (int i = 0; i < s.length;i++){
+            System.out.print(s[i]);
+            System.out.print(arrow);
+            System.out.print(columnSequenceNumber(s[i]));
+            System.out.print(arrow);
+            System.out.print(columnLetterNumber(columnSequenceNumber(s[i])));
+//            System.out.print(arrow);
+//            System.out.print(rightSideColumnDefining(s[i]));
+            System.out.println("");
+        }
 
-
-        System.out.print(args[0]);
-        System.out.print(" ==> ");
-        System.out.print(columnSequenceNumber(args[0]));
-        System.out.print(" ==> ");
-        System.out.print(columnLetterNumber(columnSequenceNumber(args[0])));
-
-//        if (columnLetterNumber(columnSequenceNumber(args[0])) != null)
-//            System.out.print(columnLetterNumber(Integer.parseInt(args[0])));
-
-//        System.out.println(rightSideColumnDefining(args[0]));
 
     }
 
@@ -21,17 +22,18 @@ public class Part7 {
 
     public static String columnLetterNumber(int number) {
         int wholeNumb;
-        int redundat;
+        int redundant;
         String letter = "";
         String str = "";
+        StringBuilder stringBuilder = new StringBuilder(str);
         while (number > 0) {
             if (number % 26 == 0) {
                 letter = "Z";
-                number = (int) (number / 26)-1;
+                number = (number / 26) - 1;
             } else {
-                wholeNumb = (int) number / 26;
-                redundat = number % 26;
-                switch (redundat) {
+                wholeNumb = number / 26;
+                redundant = number % 26;
+                switch (redundant) {
                     case 1:
                         letter = "A";
                         break;
@@ -113,9 +115,9 @@ public class Part7 {
                 }
                 number = wholeNumb;
             }
-            str = str + letter;
+            stringBuilder.append(letter);
         }
-        return new StringBuffer(str).reverse().toString();
+        return stringBuilder.reverse().toString();
     }
 
     public static int columnSequenceNumber(String number) {
