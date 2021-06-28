@@ -1,6 +1,12 @@
 public class Part7 {
     public static void main(String[] args) {
+
+
+        System.out.print(args[0]);
+        System.out.print(" ==> ");
         System.out.print(columnSequenceNumber(args[0]));
+        System.out.print(" ==> ");
+        System.out.print(columnLetterNumber(columnSequenceNumber(args[0])));
 
 //        if (columnLetterNumber(columnSequenceNumber(args[0])) != null)
 //            System.out.print(columnLetterNumber(Integer.parseInt(args[0])));
@@ -16,12 +22,12 @@ public class Part7 {
     public static String columnLetterNumber(int number) {
         int wholeNumb;
         int redundat;
-        String letter = null;
+        String letter = "";
         String str = "";
         while (number > 0) {
-            if (number == 26) {
+            if (number % 26 == 0) {
                 letter = "Z";
-                number = 0;
+                number = (int) number / 26-1;
             } else {
                 wholeNumb = (int) number / 26;
                 redundat = number % 26;
