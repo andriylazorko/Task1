@@ -11,6 +11,7 @@ public class Part6 {
         boolean achieve = true;
         int primeCount = 0;
         String primeNumbers = "";
+        StringBuilder stringBuilder = new StringBuilder(primeNumbers);
         while (achieve) {
 
             int counter = 0;
@@ -20,15 +21,24 @@ public class Part6 {
                 }
             }
             if (counter == 2) {
-                primeNumbers = primeNumbers + i + ", ";
+                if (primeCount == n-1) {
+                    stringBuilder.append(i);
+//                    primeNumbers = primeNumbers + i;
+
+                } else {
+                    stringBuilder.append(i+" ");
+//                    primeNumbers = primeNumbers + i + " ";
+
+                }
                 primeCount++;
             }
             i++;
-            if(primeCount==n){
-                achieve=false;
+            if (primeCount == n) {
+                achieve = false;
             }
+
         }
-        return primeNumbers;
+        return stringBuilder.toString();
     }
 }
 
